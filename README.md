@@ -14,14 +14,13 @@ apple-touch-icon.png    スマホのホーム画面アイコン
 robots.txt              検索エンジン向け設定（仮公開中は全拒否）
 sitemap.xml             サイトマップ（本公開時に使用）
 .nojekyll               GitHub Pages の Jekyll 処理を無効化
-images/
-  storefront.jpg          トップの外観写真（高解像度版に差し替え推奨）
-  ramen-shoyu.jpg         中華そば（メニューPDFから切り出し）
-  ramen-shio.jpg          塩中華そば（同上）
-  kids-room_temp.jpg      ★仮画像：2階キッズルーム
-  private-room_temp.jpg   ★仮画像：奥の個室
-  logo-navy.png / logo-cream.png
-  ogp.jpg                 SNSでシェアされたときの画像（1200×630）
+storefront.jpg          トップの外観写真（高解像度版に差し替え推奨）
+ramen-shoyu.jpg         中華そば（メニューPDFから切り出し）
+ramen-shio.jpg          塩中華そば（同上）
+kids-room_temp.jpg      ★仮画像：2階キッズルーム
+private-room_temp.jpg   ★仮画像：奥の個室
+logo-navy.png / logo-cream.png
+ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 ```
 
 ## 1. 仮公開（今すぐできる）
@@ -81,4 +80,4 @@ images/
 ## 更新のしかた
 
 - 価格・メニューの変更：index.html の該当行を直接編集（価格は `<span class="p">` の中）。印刷用PDFも差し替える。
-- 写真の差し替え：images/ 内の同名ファイルを上書きすれば、HTMLの修正は不要。
+- 写真の差し替え：同名ファイルを上書きアップロードすれば、HTMLの修正は不要。
