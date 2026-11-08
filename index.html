@@ -51,11 +51,9 @@
 </script>
 </head>
 <body>
-<div class="frame" aria-hidden="true"></div>
-
-<header>
+<header class="overlay">
   <div class="wrap head">
-    <a href="#top" aria-label="拉麺喫茶HOME 8823 トップへ"><img class="logo" src="logo-navy.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
+    <a href="#top" aria-label="拉麺喫茶HOME 8823 トップへ"><img class="logo" src="logo-cream.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
     <nav aria-label="メインメニュー">
       <ul>
         <li><a href="#about">お店について</a></li>
@@ -67,13 +65,16 @@
 </header>
 
 <main id="top">
-  <div class="wrap">
-    <div class="hero">
-      <img class="hero-photo" fetchpriority="high" src="storefront.jpg" alt="拉麺喫茶HOME 8823の外観。紺ののれんがかかった入口" width="750" height="561">
-      <h1 class="tagline" aria-label="心温まる、一杯とひと息。"><span>心温まる、</span><span>一杯とひと息。</span></h1>
+  <section class="hero">
+    <picture>
+      <source media="(max-width:700px)" srcset="hero-ramen-sp.webp" width="1000" height="1389">
+      <img class="hero-photo" fetchpriority="high" src="hero-ramen.webp" alt="拉麺喫茶HOME 8823の中華そば" width="1600" height="900">
+    </picture>
+    <div class="hero-copy">
+      <h1>心温まる、<br>一杯とひと息。</h1>
+      <p>八頭町見槻の、ラーメンと喫茶のお店です。</p>
     </div>
-    <p class="intro">八頭町見槻の、ラーメンと喫茶のお店です。<br>中華そばを一杯。食後にコーヒーやクリームソーダでひと息どうぞ。</p>
-  </div>
+  </section>
 
   <div class="glance">
     <div class="wrap">
@@ -90,6 +91,14 @@
     <div class="wrap">
       <div class="sec-title"><h2>お店について</h2><p>ABOUT</p></div>
       <div class="about-rows">
+        <div class="row">
+          <div class="row-photo"><img src="storefront.jpg" alt="拉麺喫茶HOME 8823の外観。紺ののれんがかかった入口" loading="lazy" width="750" height="561"></div>
+          <div>
+            <span class="place">外観</span>
+            <h3>紺ののれんが目印</h3>
+            <p>八頭町見槻の白い建物です。「拉麺喫茶 HOME 8823」の紺ののれんと、店先の看板を目印にお越しください。</p>
+          </div>
+        </div>
         <div class="row">
           <!-- 仮画像：2階キッズルームの写真に差し替え -->
           <div class="row-photo"><img src="kids-room_temp.jpg" alt="2階のキッズルーム" loading="lazy" width="760" height="507"></div>
