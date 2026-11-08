@@ -27,16 +27,19 @@
 <body>
 <div class="frame" aria-hidden="true"></div>
 
-<header>
-  <div class="wrap head">
-    <a href="index.html" aria-label="拉麺喫茶HOME 8823 トップへ"><img class="logo" src="logo-navy.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
-    <nav aria-label="メインメニュー">
+<header class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="index.html" aria-label="拉麺喫茶HOME 8823 トップへ"><img src="logo-cream.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
       <ul>
-        <li><a href="index.html#about">お店について</a></li>
-        <li><a href="menu.html" aria-current="page">メニュー</a></li>
-        <li><a href="index.html#access">店舗情報</a></li>
+        <li><a href="index.html#about">お店について<em>ABOUT</em></a></li>
+        <li><a href="menu.html" aria-current="page">メニュー<em>MENU</em></a></li>
+        <li><a href="index.html#access">店舗情報<em>ACCESS</em></a></li>
       </ul>
     </nav>
+    <button class="navbtn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -212,5 +215,20 @@
   <p class="info">鳥取県八頭郡八頭町見槻中176-4<br>11:00〜14:00／木曜定休</p>
   <small>&copy; 拉麺喫茶 HOME 8823</small>
 </footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.navbtn'), nav=document.getElementById('gnav');
+  if(!btn||!nav) return;
+  function close(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','メニューを開く'); }
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

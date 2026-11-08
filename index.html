@@ -51,16 +51,19 @@
 </script>
 </head>
 <body>
-<header class="overlay">
-  <div class="wrap head">
-    <a href="#top" aria-label="拉麺喫茶HOME 8823 トップへ"><img class="logo" src="logo-cream.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
-    <nav aria-label="メインメニュー">
+<header class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="#top" aria-label="拉麺喫茶HOME 8823 トップへ"><img src="logo-cream.png" alt="拉麺喫茶 HOME 8823 RAMEN&amp;COFFEE SINCE 2014"></a>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
       <ul>
-        <li><a href="#about">お店について</a></li>
-        <li><a href="menu.html">メニュー</a></li>
-        <li><a href="#access">店舗情報</a></li>
+        <li><a href="#about">お店について<em>ABOUT</em></a></li>
+        <li><a href="menu.html">メニュー<em>MENU</em></a></li>
+        <li><a href="#access">店舗情報<em>ACCESS</em></a></li>
       </ul>
     </nav>
+    <button class="navbtn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -72,19 +75,9 @@
     </picture>
     <div class="hero-copy">
       <h1>心温まる、<br>一杯とひと息。</h1>
-      <p>八頭町見槻の、ラーメンと喫茶のお店です。</p>
+      <p>隼の、ラーメンと喫茶のお店です。</p>
     </div>
   </section>
-
-  <div class="glance">
-    <div class="wrap">
-      <dl>
-        <div><dt>営業時間</dt><dd>11:00〜14:00</dd></div>
-        <div><dt>定休日</dt><dd>木曜日</dd></div>
-        <div><dt>所在地</dt><dd>八頭町見槻中176-4</dd></div>
-      </dl>
-    </div>
-  </div>
 
   <!-- ===== お店について ===== -->
   <section id="about">
@@ -191,5 +184,20 @@
   <p class="info">鳥取県八頭郡八頭町見槻中176-4<br>11:00〜14:00／木曜定休</p>
   <small>&copy; 拉麺喫茶 HOME 8823</small>
 </footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.navbtn'), nav=document.getElementById('gnav');
+  if(!btn||!nav) return;
+  function close(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','メニューを開く'); }
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>

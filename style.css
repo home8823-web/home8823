@@ -7,6 +7,7 @@
   --ink-soft:#4A5270;
   --red:#C31D1D;
   --rule:rgba(21,34,68,.28);
+  --bar:74px;
   --font:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif CJK JP",serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -17,29 +18,45 @@ img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
-/* メニュー表の二重枠をページにも */
-.frame{position:fixed;inset:10px;border:2px solid var(--navy);pointer-events:none;z-index:50}
+/* メニュー表の二重枠（上のバーの下から下端まで） */
+.frame{position:fixed;top:calc(var(--bar) + 10px);left:10px;right:10px;bottom:10px;border:2px solid var(--navy);pointer-events:none;z-index:50}
 .frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--navy)}
-@media (max-width:640px){.frame{inset:6px}.frame::after{inset:3px}}
+@media (max-width:640px){
+  .frame{top:calc(var(--bar) + 6px);left:6px;right:6px;bottom:6px}
+  .frame::after{inset:3px}
+}
 
 .wrap{max-width:1040px;margin:0 auto;padding:0 clamp(24px,5vw,48px)}
 
-/* ヘッダー */
-header{padding:36px 0 0}
-.head{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.head .logo{width:clamp(170px,22vw,220px)}
-nav ul{list-style:none;display:flex;gap:clamp(16px,3vw,32px);font-weight:700;font-size:.95rem}
-nav a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
-nav a:hover{border-bottom-color:var(--navy)}
-nav a[aria-current="page"]{border-bottom-color:var(--navy)}
+/* 上部に固定されるメニューバー */
+.bar{position:sticky;top:0;z-index:100;background:var(--navy);color:var(--paper);box-shadow:0 1px 10px rgba(10,16,28,.25)}
+.bar-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,32px);min-height:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:block;line-height:0}
+.brand img{width:clamp(132px,15vw,186px)}
+.gnav ul{list-style:none;display:flex;align-items:stretch}
+.gnav li+li{border-left:1px solid rgba(243,240,225,.28)}
+.gnav a{display:block;text-decoration:none;text-align:center;font-weight:700;font-size:.95rem;letter-spacing:.1em;padding:4px clamp(14px,2vw,26px)}
+.gnav a em{display:block;font-style:normal;font-size:.6rem;letter-spacing:.2em;opacity:.65;margin-top:3px}
+.gnav a:hover{opacity:.72}
+.gnav a[aria-current="page"] em{opacity:1}
+.navbtn{display:none;background:none;border:0;color:inherit;cursor:pointer;padding:10px 4px;width:44px}
+.navbtn span{display:block;height:2px;background:var(--paper);border-radius:2px;transition:transform .25s,opacity .2s}
+.navbtn span+span{margin-top:6px}
+.navbtn[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.navbtn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.navbtn[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){.navbtn span{transition:none}}
 
-/* 写真の上に重ねるヘッダー（トップページ） */
-header.overlay{position:absolute;top:0;left:0;right:0;z-index:10;padding:clamp(20px,3vw,34px) 0 0;color:var(--paper)}
-header.overlay nav a{color:var(--paper);text-shadow:0 1px 6px rgba(0,0,0,.55)}
-header.overlay nav a:hover,header.overlay nav a[aria-current="page"]{border-bottom-color:var(--paper)}
-header.overlay .logo{filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
 @media (max-width:760px){
-  header.overlay nav ul{border:0;padding:10px 0 0}
+  :root{--bar:62px}
+  .navbtn{display:block}
+  .gnav{position:absolute;top:100%;left:0;right:0;background:var(--navy);border-top:1px solid rgba(243,240,225,.22);
+        display:none;box-shadow:0 10px 20px rgba(10,16,28,.3)}
+  .gnav.open{display:block}
+  .gnav ul{display:block}
+  .gnav li+li{border-left:0;border-top:1px solid rgba(243,240,225,.18)}
+  .gnav a{text-align:left;padding:15px clamp(20px,6vw,32px);font-size:1rem}
+  .gnav a em{display:inline;margin-left:1em;font-size:.62rem}
 }
 
 /* トップのメインビジュアル（全面写真） */
@@ -70,7 +87,7 @@ header.overlay .logo{filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
 }
 
 /* セクション共通 */
-section{padding:clamp(64px,9vw,104px) 0 0}
+section{padding:clamp(64px,9vw,104px) 0 0;scroll-margin-top:var(--bar)}
 .sec-title{text-align:center;margin-bottom:clamp(36px,5vw,56px)}
 .sec-title h2{display:inline-block;font-weight:800;font-size:clamp(1.9rem,4.4vw,2.8rem);letter-spacing:.3em;padding:0 0 6px .3em;border-bottom:2px solid var(--navy);line-height:1.4}
 .sec-title p{font-size:.85rem;letter-spacing:.25em;margin-top:8px}
