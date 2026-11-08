@@ -5,7 +5,9 @@ GitHub Pages で公開する静的サイトです。ビルド不要、このフ�
 ## ファイル構成
 
 ```
-index.html              トップページ（1ページ構成）
+index.html              トップページ
+menu.html               メニューページ（おしながき＋喫茶メニュー）
+style.css               2ページ共通のスタイル（デザインの変更はここ）
 404.html                ページが見つからないとき用
 menu-ramen.pdf          印刷用おしながき
 menu-cafe.pdf           印刷用喫茶メニュー
@@ -22,6 +24,13 @@ private-room_temp.jpg   ★仮画像：奥の個室
 logo-navy.png / logo-cream.png
 ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 ```
+
+## ページ構成
+
+- **トップ（index.html）**：外観写真とキャッチ → 営業時間の帯 → お店について（キッズルーム・個室・食後の喫茶） → 人気の2品とメニューページへの導線 → 店舗情報・地図
+- **メニュー（menu.html）**：おしながき（ラーメン・トッピング・ご飯もの・セット・サイド・お子様・定食）→ 喫茶メニュー → 印刷用PDFへのリンク
+
+トップを短く保ち、細かい価格はメニューページにまとめています。`/menu.html` は単独のURLなので、InstagramやGoogleビジネスプロフィールからメニューへ直接リンクできます。
 
 ## 1. 仮公開（今すぐできる）
 
@@ -63,8 +72,8 @@ ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 
 ## 3. 本公開チェックリスト
 
-- [ ] `__DOMAIN__` をすべて実際のドメインに置換（index.html 5か所、robots.txt、sitemap.xml）
-- [ ] index.html の `<meta name="robots" content="noindex, nofollow">` の行を削除
+- [ ] `__DOMAIN__` をすべて実際のドメインに置換（index.html 6か所、menu.html 3か所、robots.txt、sitemap.xml）
+- [ ] index.html と menu.html の `<meta name="robots" content="noindex, nofollow">` の行を削除（各1行）
 - [ ] robots.txt を以下に書き換え
       ```
       User-agent: *
@@ -79,5 +88,6 @@ ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 
 ## 更新のしかた
 
-- 価格・メニューの変更：index.html の該当行を直接編集（価格は `<span class="p">` の中）。印刷用PDFも差し替える。
+- 価格・メニューの変更：**menu.html** の該当行を直接編集（価格は `<span class="p">` の中）。印刷用PDFも差し替える。中華そば・塩中華そばの値段はトップページ（index.html）にも出ているので、変わったときは両方直す。
 - 写真の差し替え：同名ファイルを上書きアップロードすれば、HTMLの修正は不要。
+- 見た目の調整（色・文字サイズ・余白）：style.css を直せば2ページとも変わる。
