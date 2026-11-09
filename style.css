@@ -149,6 +149,18 @@ h3 small{font-size:.6em;letter-spacing:.1em;font-weight:700;margin-left:.6em}
 .pdf{text-align:center;margin-top:18px;font-size:.9rem}
 .pdf a{text-underline-offset:4px}
 
+/* 隼のまちで */
+#hayabusa{padding-top:0}
+.hayabusa-band{position:relative;padding:clamp(56px,8vw,96px) 0;color:var(--paper);
+  background:linear-gradient(rgba(10,16,28,.75),rgba(10,16,28,.75)),url("hayabusa.webp") center 58%/cover no-repeat}
+.sec-title.light h2{border-bottom-color:var(--paper)}
+.hayabusa-band .wrap > p{max-width:30em;margin:0 auto;text-align:center;font-weight:700;
+  font-size:clamp(1rem,1.9vw,1.15rem);line-height:2.3;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.hayabusa-band .wrap > p + p{margin-top:1.6em}
+@media (max-width:640px){
+  .hayabusa-band .wrap > p{text-align:left;line-height:2.1}
+}
+
 /* お店について */
 .about-rows{display:grid;gap:clamp(48px,7vw,80px)}
 .row{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
