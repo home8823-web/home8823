@@ -30,15 +30,23 @@ a{color:inherit}
 
 /* 上部に固定されるメニューバー */
 .bar{position:sticky;top:0;z-index:100;background:var(--navy);color:var(--paper);box-shadow:0 1px 10px rgba(10,16,28,.25)}
-.bar-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,32px);min-height:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.bar-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,32px);min-height:var(--bar);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px)}
 .brand{display:block;line-height:0}
-.brand img{width:clamp(132px,15vw,186px)}
+.brand img{width:clamp(96px,12vw,118px)}
+.gnav{margin-left:auto}
 .gnav ul{list-style:none;display:flex;align-items:stretch}
 .gnav li+li{border-left:1px solid rgba(243,240,225,.28)}
 .gnav a{display:block;text-decoration:none;text-align:center;font-weight:700;font-size:.95rem;letter-spacing:.1em;padding:4px clamp(14px,2vw,26px)}
 .gnav a em{display:block;font-style:normal;font-size:.6rem;letter-spacing:.2em;opacity:.65;margin-top:3px}
 .gnav a:hover{opacity:.72}
 .gnav a[aria-current="page"] em{opacity:1}
+.bar-right{display:flex;align-items:center;gap:2px}
+.sns-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:inherit}
+.sns-btn:hover{opacity:.72}
+@media (min-width:761px){
+  .sns-btn{width:auto;height:32px;padding-left:clamp(16px,1.8vw,26px);margin-left:clamp(10px,1.4vw,18px);
+           border-left:1px solid rgba(243,240,225,.28)}
+}
 .navbtn{display:none;background:none;border:0;color:inherit;cursor:pointer;padding:10px 4px;width:44px}
 .navbtn span{display:block;height:2px;background:var(--paper);border-radius:2px;transition:transform .25s,opacity .2s}
 .navbtn span+span{margin-top:6px}
