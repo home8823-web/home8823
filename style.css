@@ -18,14 +18,6 @@ img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
-/* メニュー表の二重枠（上のバーの下から下端まで） */
-.frame{position:fixed;top:calc(var(--bar) + 10px);left:10px;right:10px;bottom:10px;border:2px solid var(--navy);pointer-events:none;z-index:50}
-.frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--navy)}
-@media (max-width:640px){
-  .frame{top:calc(var(--bar) + 6px);left:6px;right:6px;bottom:6px}
-  .frame::after{inset:3px}
-}
-
 .wrap{max-width:1040px;margin:0 auto;padding:0 clamp(24px,5vw,48px)}
 
 /* 上部に固定されるメニューバー */
