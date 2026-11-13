@@ -18,7 +18,7 @@ sitemap.xml             サイトマップ（本公開時に使用）
 .nojekyll               GitHub Pages の Jekyll 処理を無効化
 hero-ramen.webp         トップの全面メインビジュアル（PC用・横長）
 hero-ramen-sp.webp      同上（スマホ用・縦長）
-hayabusa.webp           ★仮画像：「隼のまちで」の背景写真（隼駅／Wikipediaから）
+hayabusa.webp           「隼のまちで」の背景写真（隼駅）
 noren.webp              店舗情報の上に全幅の帯で入るのれんの写真
 storefront.webp         現在は未使用（のれんの帯に差し替え。削除可）
 storefront.jpg          現在は未使用（削除可）
@@ -26,7 +26,7 @@ ramen-shoyu.jpg         中華そば（メニューPDFから切り出し）
 ramen-shio.jpg          塩中華そば（同上）
 kids-room.webp          2階キッズルームの写真
 teishoku.webp           「お店について」の定食の写真
-private-room_temp.jpg   ★仮画像：奥の個室
+private-room.webp       奥の個室の写真
 logo-navy.png / logo-cream.png
 ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 ```
@@ -90,8 +90,6 @@ ogp.jpg                 SNSでシェアされたときの画像（1200×630）
       Allow: /
       Sitemap: https://ドメイン/sitemap.xml
       ```
-- [ ] **★hayabusa.webp を自分で撮影した隼駅の写真に差し替え**（Wikipediaの写真のまま公開しない）
-- [ ] **★private-room_temp.jpg を実際の個室の写真に差し替え**（他店の写真のまま公開しない）。ファイル名から `_temp` を外し、index.html の参照とコメントも更新
 - [ ] 店舗情報の追加確認：電話番号
 - [ ] Google Search Console にドメインを登録し、sitemap.xml を送信
 - [ ] Googleビジネスプロフィールの「ウェブサイト」欄にURLを登録
