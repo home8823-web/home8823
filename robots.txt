@@ -1,4 +1,4 @@
-# 仮公開中：すべてのクローラーを拒否
-# 本公開時は下の2行を「User-agent: *」「Allow: /」＋「Sitemap: https://__DOMAIN__/sitemap.xml」に書き換える
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://ramen-home8823.com/sitemap.xml

@@ -58,7 +58,7 @@ ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 **順番が大事です。DNSを設定する前に、必ずGitHub側にドメインを登録してください。** 逆にすると、第三者がそのドメインでサイトを公開できてしまうリスクがあります。
 
 1. **ドメインを検証する**：アカウント（またはOrganization）の Settings → Pages → Add a domain にドメインを入力 → 表示されたTXTレコードをDNSに追加 → Verify。
-2. **リポジトリに登録する**：リポジトリの Settings → Pages → Custom domain にドメイン（例：`home8823.com`）を入力して Save。ルートに `CNAME` ファイルが自動でコミットされる。
+2. **リポジトリに登録する**：リポジトリの Settings → Pages → Custom domain にドメイン `ramen-home8823.com` を入力して Save。ルートに `CNAME` ファイルが自動でコミットされる。
 3. **DNSを設定する**（ドメイン会社の管理画面）。先に、ドメイン会社が自動で入れている既定のA/CNAMEレコード（駐車ページ用など）を削除してから追加する。
 
 | 種類 | ホスト名 | 値 |
@@ -71,24 +71,16 @@ ogp.jpg                 SNSでシェアされたときの画像（1200×630）
 | AAAA | @ | 2606:50c0:8001::153 |
 | AAAA | @ | 2606:50c0:8002::153 |
 | AAAA | @ | 2606:50c0:8003::153 |
-| CNAME | www | `<ユーザー名またはOrganization名>.github.io`（リポジトリ名は付けない） |
+| CNAME | www | `home8823-web.github.io`（リポジトリ名は付けない） |
 
-- ワイルドカード（`*.home8823.com`）のレコードは作らない（乗っ取りの原因になる）。
-- `home8823.com` と `www.home8823.com` の両方を設定しておけば、GitHubが自動でリダイレクトしてくれる。
+- ワイルドカード（`*.ramen-home8823.com`）のレコードは作らない（乗っ取りの原因になる）。
+- `ramen-home8823.com` と `www.ramen-home8823.com` の両方を設定しておけば、GitHubが自動でリダイレクトしてくれる。
 - 反映には最大24時間かかる。
 
 4. **HTTPSを有効にする**：Settings → Pages の「Enforce HTTPS」にチェック。選べるようになるまで最大24時間かかる。
 
-## 3. 本公開チェックリスト
+## 3. 本公開チェックリスト（ドメイン：ramen-home8823.com）
 
-- [ ] `__DOMAIN__` をすべて実際のドメインに置換（index.html 6か所、menu.html 3か所、robots.txt、sitemap.xml）
-- [ ] index.html と menu.html の `<meta name="robots" content="noindex, nofollow">` の行を削除（各1行）
-- [ ] robots.txt を以下に書き換え
-      ```
-      User-agent: *
-      Allow: /
-      Sitemap: https://ドメイン/sitemap.xml
-      ```
 - [ ] 店舗情報の追加確認：電話番号
 - [ ] Google Search Console にドメインを登録し、sitemap.xml を送信
 - [ ] Googleビジネスプロフィールの「ウェブサイト」欄にURLを登録
